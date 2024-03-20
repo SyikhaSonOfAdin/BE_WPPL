@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/SyikhaSonOfAdin/BE_WPPL/issues"
   },
-  "homepage": "https://github.com/SyikhaSonOfAdin/BE_WPPL#readme"
+  "homepage": "https://github.com/SyikhaSonOfAdin/BE_WPPL#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.3",
+    "mysql2": "^3.9.2",
+    "nodemon": "^3.1.0"
+  }
 }
