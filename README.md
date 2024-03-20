@@ -7,7 +7,7 @@ Hi my name [Muchamad Syikha Akmal](https://www.syikha.com) I'm a full stack deve
 
 
 ### Details :
-- PROJECT NAME : TOOLS AND EQUIPMENTS MANAJEMENT SYSTEM
+- PROJECT NAME : WAREHOUSE WPPL
 - DEV : MUCHAMAD SYIKHA AKMAL
 
 
