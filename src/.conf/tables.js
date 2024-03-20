@@ -8,6 +8,32 @@ const TABLES = {
             "LEVEL",
             "COMPANY_ID"
         ]
+    },
+    ITEMS: {
+        LIST: {
+            TABLE: "items_list",
+            COLOUMN: [
+                "NAME", 
+                "CODE", 
+                "BRAND",
+                "MADE_IN", 
+                "COMPANY_ID", 
+                "INPUT_BY", 
+                "INPUT_DATE"
+            ]
+        },
+        RECEIVE: {
+            TABLE: "items_receive",
+            COLOUMN: [
+
+            ]
+        },
+        ISSUED: {
+            TABLE: "items_issued",
+            COLOUMN: [
+                
+            ]
+        }
     }
 }
 

@@ -19,8 +19,8 @@ class Access {
   }
 }
 
-const IMS = new Access('syih2943_warehouse_wppl')
+const WAREHOUSE_WPPL = new Access('syih2943_warehouse_wppl')
 
 module.exports = {
-    IMS    
+  WAREHOUSE_WPPL    
 }
