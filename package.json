@@ -1,0 +1,19 @@
+{
+  "name": "agile_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SyikhaSonOfAdin/BE_WPPL.git"
+  },
+  "author": "Muchamad Syikha Akmal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SyikhaSonOfAdin/BE_WPPL/issues"
+  },
+  "homepage": "https://github.com/SyikhaSonOfAdin/BE_WPPL#readme"
+}
