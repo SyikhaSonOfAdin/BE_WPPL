@@ -1,12 +1,12 @@
 const { WAREHOUSE_WPPL } = require("../../.conf/db-conf")
 const TABLES = require("../../.conf/tables")
 
-class Receive {
+class Issued {
 
     add =  async (Item_id, Qty, Input_by, Input_date, Company_id) => {
         const CONNECTION = await WAREHOUSE_WPPL.getConnection() 
         const QUERY = [
-            `INSERT INTO ${TABLES.ITEMS.RECEIVE.TABLE} (${TABLES.ITEMS.RECEIVE.COLOUMN.join(',')}) VALUES (?, ?, ?, ?, ?)`
+            `INSERT INTO ${TABLES.ITEMS.ISSUED.TABLE} (${TABLES.ITEMS.ISSUED.COLOUMN.join(',')}) VALUES (?, ?, ?, ?, ?)`
         ]
         const PARAMS = [[Item_id, Qty, Input_by, Input_date, Company_id]]
 
@@ -22,7 +22,7 @@ class Receive {
     edit =  async (Id, Items_id, Qty, Input_by, Company_id) => {
         const CONNECTION = await WAREHOUSE_WPPL.getConnection() 
         const QUERY = [
-            `UPDATE ${TABLES.ITEMS.RECEIVE.TABLE} AS t SET t.ITEMS_ID = ?, t.QTY = ?, t.INPUT_BY = ? WHERE t.COMPANY_ID = ? AND t.ID = ?`
+            `UPDATE ${TABLES.ITEMS.ISSUED.TABLE} AS t SET t.ITEMS_ID = ?, t.QTY = ?, t.INPUT_BY = ? WHERE t.COMPANY_ID = ? AND t.ID = ?`
         ]
         const PARAMS = [[Items_id, Qty, Input_by, Company_id, Id]]
 
@@ -38,7 +38,7 @@ class Receive {
     delete =  async (Id, Company_id) => {
         const CONNECTION = await WAREHOUSE_WPPL.getConnection() 
         const QUERY = [
-            `DELETE FROM ${TABLES.ITEMS.RECEIVE.TABLE} WHERE ID = ? AND COMPANY_ID = ?`
+            `DELETE FROM ${TABLES.ITEMS.ISSUED.TABLE} WHERE ID = ? AND COMPANY_ID = ?`
         ]
         const PARAMS = [[Id, Company_id]]
 
@@ -54,7 +54,7 @@ class Receive {
     get = async () => {
         const CONNECTION = await WAREHOUSE_WPPL.getConnection() 
         const QUERY = [
-            `SELECT * FROM ${TABLES.ITEMS.RECEIVE.TABLE}`
+            `SELECT * FROM ${TABLES.ITEMS.ISSUED.TABLE}`
         ]
         
         try {
@@ -68,4 +68,4 @@ class Receive {
     }
 }
 
-module.exports = Receive ;
+module.exports = Issued ;

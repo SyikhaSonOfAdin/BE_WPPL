@@ -51,6 +51,22 @@ class Items {
             CONNECTION.release() ;
         }
     }
+
+    get = async () => {
+        const CONNECTION = await WAREHOUSE_WPPL.getConnection() ;
+        const QUERY = [
+            `SELECT * FROM ${TABLES.ITEMS.LIST.TABLE}`
+        ]
+
+        try {
+            const DATA = await CONNECTION.query(QUERY[0]) ;
+            return DATA ;
+        } catch (error) {
+            throw error
+        } finally {
+            CONNECTION.release() ;
+        }
+    }
 }
 
 module.exports = {

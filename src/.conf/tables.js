@@ -13,28 +13,36 @@ const TABLES = {
         LIST: {
             TABLE: "items_list",
             COLOUMN: [
-                "NAME", 
-                "CODE", 
+                "NAME",
+                "CODE",
                 "BRAND",
-                "MADE_IN", 
-                "COMPANY_ID", 
-                "INPUT_BY", 
+                "MADE_IN",
+                "COMPANY_ID",
+                "INPUT_BY",
                 "INPUT_DATE"
             ]
         },
         RECEIVE: {
             TABLE: "items_receive",
             COLOUMN: [
-
+                "ITEMS_ID",
+                "QTY",
+                "INPUT_BY",
+                "INPUT_DATE",
+                "COMPANY_ID",
             ]
         },
         ISSUED: {
             TABLE: "items_issued",
             COLOUMN: [
-                
+                "ITEMS_ID",
+                "QTY",
+                "INPUT_BY",
+                "INPUT_DATE",
+                "COMPANY_ID",
             ]
         }
     }
 }
 
-module.exports = TABLES ;
+module.exports = TABLES;
