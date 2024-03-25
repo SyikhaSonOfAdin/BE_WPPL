@@ -24,6 +24,9 @@ const PATH_CONF = {
             LIST: require('../APIS/GET/Items/List/itemsGetData'),
             RECEIVE: require('../APIS/GET/Items/Receive/receiveGetData'),
             ISSUED: require('../APIS/GET/Items/Issued/issuedGetData'),
+        },
+        SUMMARY: {
+            ITENS: require('../APIS/GET/Summary/Items/itemsSummary')
         }
     }
 }
@@ -48,9 +51,13 @@ const ARRAY_PATH = {
         PATH_CONF.POST.ITEMS.ISSUED.DELETE,
     ],
     GET: [
+        // ITENS
         PATH_CONF.GET.ITEMS.LIST,
         PATH_CONF.GET.ITEMS.RECEIVE,
         PATH_CONF.GET.ITEMS.ISSUED,
+
+        // SUMMARY
+        PATH_CONF.GET.SUMMARY.ITENS
     ]
 }
 module.exports = ARRAY_PATH;

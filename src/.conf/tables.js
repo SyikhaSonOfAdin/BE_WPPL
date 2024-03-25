@@ -51,9 +51,12 @@ const TABLES = {
         }
     },
     SUMMARY: {
-        TABLE: "items_summary",
+        TABLE: "sum_items",
         COLOUMN: [
-            
+            "ITEMS_ID",
+            "RECEIVED",
+            "ISSUED",
+            "STOCK",
         ]
     }
 }

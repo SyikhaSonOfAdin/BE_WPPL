@@ -5,20 +5,25 @@ const TABLES = require("../../.conf/tables");
 class Items {
 
     add = async (Name, Code, Brand, Made_in, Company_id, Input_by, Input_date) => {
-        const CONNECTION = await WAREHOUSE_WPPL.getConnection() ;
+        const CONNECTION = await WAREHOUSE_WPPL.getConnection();
         const QUERY = [
-            `INSERT INTO ${TABLES.ITEMS.LIST.TABLE} (${TABLES.ITEMS.LIST.COLOUMN.join(',')}) VALUES (?, ?, ?, ?, ?, ?, ?)`
-        ]
-        const PARAMS = [[Name, Code, Brand, Made_in, Company_id, Input_by, Input_date]]
-
+            `INSERT INTO ${TABLES.ITEMS.LIST.TABLE} (${TABLES.ITEMS.LIST.COLOUMN.join(',')}) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+            `SELECT LAST_INSERT_ID() AS ID`
+        ];
+        const PARAMS = [[Name, Code, Brand, Made_in, Company_id, Input_by, Input_date]];
+    
         try {
-            await CONNECTION.query(QUERY[0], PARAMS[0]) 
+            await CONNECTION.query(QUERY[0], PARAMS[0]);
+            const RESULT = await CONNECTION.query(QUERY[1]); 
+            const ITEMS_ID = RESULT[0][0].ID;
+            return ITEMS_ID
         } catch (error) {
-            throw error
+            throw error;
         } finally {
-            CONNECTION.release() ;
+            CONNECTION.release();
         }
     }
+    
 
     edit = async (Item_id, Name, Code, Brand, Made_in, Company_id, Input_by) => {
         const CONNECTION = await WAREHOUSE_WPPL.getConnection() ;

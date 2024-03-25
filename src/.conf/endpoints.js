@@ -4,6 +4,9 @@ const ENDPOINTS = {
             LIST: '/items/list',
             RECEIVE: '/items/receive',
             ISSUED: '/items/issued',
+        },
+        SUMMARY: {
+            ITEMS: '/summary/items'
         }
     },
     POST: {
