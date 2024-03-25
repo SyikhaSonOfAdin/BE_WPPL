@@ -56,7 +56,23 @@ class Summary {
         }
     }
 
-    
+
+    refresh = async () => {
+        const CONNECTION = await WAREHOUSE_WPPL.getConnection()
+        const QUERY = [
+            `INSERT INTO ${TABLES.SUMMARY.TABLE} (ITEMS_ID, RECEIVED, ISSUED, STOCK) SELECT l.ID, SUM(r.QTY) AS RECEIVED, IFNULL(SUM(i.QTY), 0) AS ISSUED, SUM(r.QTY) - IFNULL(SUM(i.QTY), 0) AS STOCK FROM ${TABLES.ITEMS.LIST.TABLE} AS l LEFT JOIN ${TABLES.ITEMS.RECEIVE.TABLE} AS r ON l.ID = r.ITEMS_ID LEFT JOIN ${TABLES.ITEMS.ISSUED.TABLE} AS i ON l.ID = i.ITEMS_ID GROUP BY l.ID ON DUPLICATE KEY UPDATE RECEIVED = VALUES(RECEIVED), ISSUED = VALUES(ISSUED), STOCK = VALUES(STOCK)`
+        ]
+
+        try {
+            await CONNECTION.query(QUERY[0])
+        } catch (error) {
+            throw error
+        } finally {
+            CONNECTION.release()
+        }
+    }
+
+
     get = async () => {
         const CONNECTION = await WAREHOUSE_WPPL.getConnection()
         const QUERY = [
@@ -75,4 +91,7 @@ class Summary {
     }
 }
 
-module.exports = Summary 
+module.exports = Summary
+
+
+
