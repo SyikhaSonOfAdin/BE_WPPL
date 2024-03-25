@@ -55,7 +55,7 @@ class Items {
     get = async () => {
         const CONNECTION = await WAREHOUSE_WPPL.getConnection() ;
         const QUERY = [
-            `SELECT * FROM ${TABLES.ITEMS.LIST.TABLE}`
+            `SELECT t.ID, t.NAME, t.CODE, t.BRAND, t.MADE_IN, c.NAME AS COMPANY_NAME, DATE_FORMAT(t.INPUT_DATE, '%Y-%m-%d') AS INPUT_DATE , u.USERNAME AS INPUT_BY  FROM ${TABLES.ITEMS.LIST.TABLE} AS t JOIN ${TABLES.COMPANY.TABLE} AS c ON t.COMPANY_ID = c.ID JOIN ${TABLES.USER.TABLE} AS u ON t.INPUT_BY = u.ID `
         ]
 
         try {

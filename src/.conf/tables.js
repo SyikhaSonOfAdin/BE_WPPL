@@ -1,4 +1,11 @@
 const TABLES = {
+    COMPANY: {
+        TABLE: "company",
+        COLOUMN: [
+            "NAME",            
+            "SINCE"            
+        ]
+    },
     USER: {
         TABLE: "users",
         COLOUMN: [
@@ -42,6 +49,12 @@ const TABLES = {
                 "COMPANY_ID",
             ]
         }
+    },
+    SUMMARY: {
+        TABLE: "items_summary",
+        COLOUMN: [
+            
+        ]
     }
 }
 
