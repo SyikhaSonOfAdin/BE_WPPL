@@ -60,7 +60,7 @@ class Summary {
     get = async () => {
         const CONNECTION = await WAREHOUSE_WPPL.getConnection()
         const QUERY = [
-            `SELECT s.ID, l.NAME, l.CODE, l.BRAND, l.MADE_IN, s.RECEIVED, s.ISSUED, s.STOCK FROM ${TABLES.SUMMARY.TABLE} AS s JOIN ${TABLES.ITEMS.LIST.TABLE} AS l ON s.ITEMS_ID = l.ID`
+            `SELECT s.ID, s.ITEMS_ID, l.NAME, l.CODE, l.BRAND, l.MADE_IN, s.RECEIVED, s.ISSUED, s.STOCK FROM ${TABLES.SUMMARY.TABLE} AS s JOIN ${TABLES.ITEMS.LIST.TABLE} AS l ON s.ITEMS_ID = l.ID`
         ]
 
         try {
