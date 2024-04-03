@@ -1,7 +1,7 @@
 const express = require('express')  ;
 const path = require('path') ;
 const cors = require('cors');
-const ARRAY_PATH = require('./.conf/path-conf');
+const ARRAY_PATH = require('./src/.conf/path-conf');
 
 const app = express();
 const port = 3000;
