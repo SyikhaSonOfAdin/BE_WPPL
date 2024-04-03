@@ -73,14 +73,16 @@ class Summary {
     }
 
 
-    get = async () => {
+    get = async (Company_id) => {
         const CONNECTION = await WAREHOUSE_WPPL.getConnection()
         const QUERY = [
-            `SELECT s.ID, s.ITEMS_ID, l.NAME, l.CODE, l.BRAND, l.MADE_IN, s.RECEIVED, s.ISSUED, s.STOCK FROM ${TABLES.SUMMARY.TABLE} AS s JOIN ${TABLES.ITEMS.LIST.TABLE} AS l ON s.ITEMS_ID = l.ID`
+            `SELECT s.ID, s.ITEMS_ID, l.NAME, l.CODE, l.BRAND, l.MADE_IN, s.RECEIVED, s.ISSUED, s.STOCK FROM ${TABLES.SUMMARY.TABLE} AS s 
+            JOIN ${TABLES.ITEMS.LIST.TABLE} AS l ON s.ITEMS_ID = l.ID WHERE l.COMPANY_ID = ?`
         ]
+        const PARAMS = [[Company_id]]
 
         try {
-            const DATA = await CONNECTION.query(QUERY[0])
+            const DATA = await CONNECTION.query(QUERY[0], PARAMS[0])
 
             return DATA;
         } catch (error) {

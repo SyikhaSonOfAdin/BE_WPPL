@@ -51,14 +51,17 @@ class Receive {
         }
     }
 
-    get = async () => {
+    get = async (Company_id) => {
         const CONNECTION = await WAREHOUSE_WPPL.getConnection() 
         const QUERY = [
-            `SELECT l.ID, l.NAME, l.CODE, l.BRAND, l.MADE_IN, i.QTY, DATE_FORMAT(i.INPUT_DATE, '%Y-%m-%d') AS INPUT_DATE, u.USERNAME AS INPUT_BY, c.NAME AS COMPANY_NAME FROM ${TABLES.ITEMS.RECEIVE.TABLE} AS i JOIN ${TABLES.ITEMS.LIST.TABLE} AS l ON i.ITEMS_ID = l.ID JOIN ${TABLES.USER.TABLE} AS u ON i.INPUT_BY = u.ID JOIN ${TABLES.COMPANY.TABLE} AS c ON i.COMPANY_ID = c.ID `
+            `SELECT l.ID, l.NAME, l.CODE, l.BRAND, l.MADE_IN, i.QTY, DATE_FORMAT(i.INPUT_DATE, '%Y-%m-%d') AS INPUT_DATE, u.USERNAME AS INPUT_BY, c.NAME AS COMPANY_NAME 
+            FROM ${TABLES.ITEMS.RECEIVE.TABLE} AS i JOIN ${TABLES.ITEMS.LIST.TABLE} AS l ON i.ITEMS_ID = l.ID 
+            JOIN ${TABLES.USER.TABLE} AS u ON i.INPUT_BY = u.ID JOIN ${TABLES.COMPANY.TABLE} AS c ON i.COMPANY_ID = c.ID WHERE c.ID = ?`
         ]
+        const PARAMS = [[Company_id]]
         
         try {
-            const DATA = await CONNECTION.query(QUERY[0]) 
+            const DATA = await CONNECTION.query(QUERY[0], PARAMS[0]) 
             return DATA 
         } catch (error) {
             throw error 
