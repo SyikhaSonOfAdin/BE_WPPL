@@ -7,7 +7,7 @@ class Items {
     add = async (Name, Code, Brand, Made_in, Company_id, Input_by, Input_date) => {
         const CONNECTION = await WAREHOUSE_WPPL.getConnection();
         const QUERY = [
-            `INSERT INTO ${TABLES.ITEMS.LIST.TABLE} (${TABLES.ITEMS.LIST.COLOUMN.join(',')}) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+            `INSERT INTO ${TABLES.ITEMS.LIST.TABLE} (${TABLES.ITEMS.LIST.COLUMN.join(',')}) VALUES (?, ?, ?, ?, ?, ?, ?)`,
             `SELECT LAST_INSERT_ID() AS ID`
         ];
         const PARAMS = [[Name, Code, Brand, Made_in, Company_id, Input_by, Input_date]];

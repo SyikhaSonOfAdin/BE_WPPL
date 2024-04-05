@@ -1,14 +1,14 @@
 const TABLES = {
     COMPANY: {
         TABLE: "company",
-        COLOUMN: [
+        COLUMN: [
             "NAME",            
             "SINCE"            
         ]
     },
     USER: {
         TABLE: "users",
-        COLOUMN: [
+        COLUMN: [
             "USERNAME",
             "EMAIL",
             "PASSWORD",
@@ -19,7 +19,7 @@ const TABLES = {
     ITEMS: {
         LIST: {
             TABLE: "items_list",
-            COLOUMN: [
+            COLUMN: [
                 "NAME",
                 "CODE",
                 "BRAND",
@@ -31,7 +31,7 @@ const TABLES = {
         },
         RECEIVE: {
             TABLE: "items_receive",
-            COLOUMN: [
+            COLUMN: [
                 "ITEMS_ID",
                 "QTY",
                 "INPUT_BY",
@@ -41,7 +41,7 @@ const TABLES = {
         },
         ISSUED: {
             TABLE: "items_issued",
-            COLOUMN: [
+            COLUMN: [
                 "ITEMS_ID",
                 "QTY",
                 "INPUT_BY",
@@ -52,7 +52,7 @@ const TABLES = {
     },
     SUMMARY: {
         TABLE: "sum_items",
-        COLOUMN: [
+        COLUMN: [
             "ITEMS_ID",
             "RECEIVED",
             "ISSUED",
