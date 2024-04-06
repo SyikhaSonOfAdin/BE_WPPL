@@ -39,22 +39,6 @@ class Receive {
         }
     }
 
-    // edit =  async (Id, Items_id, Qty, Input_by, Company_id) => {
-    //     const CONNECTION = await WAREHOUSE_WPPL.getConnection() 
-    //     const QUERY = [
-    //         `UPDATE ${TABLES.ITEMS.RECEIVE.TABLE} AS t SET t.ITEMS_ID = ?, t.QTY = ?, t.INPUT_BY = ? WHERE t.COMPANY_ID = ? AND t.ID = ?`
-    //     ]
-    //     const PARAMS = [[Items_id, Qty, Input_by, Company_id, Id]]
-
-    //     try {
-    //         await CONNECTION.query(QUERY[0], PARAMS[0]) ;
-    //     } catch (error) {
-    //         throw error 
-    //     } finally {
-    //         CONNECTION.release()
-    //     }
-    // }
-
     delete =  async (Id, Company_id) => {
         const CONNECTION = await WAREHOUSE_WPPL.getConnection() 
         const QUERY = [
