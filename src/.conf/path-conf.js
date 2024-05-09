@@ -1,6 +1,11 @@
 const PATH_CONF = {
     POST: {
         LOGIN: require('../APIS/POST/Login/login'),
+        LOCATION: {
+            ADD: require('../APIS/POST/Location/add'),
+            EDIT: require('../APIS/POST/Location/edit'),
+            DELETE: require('../APIS/POST/Location/delete'),
+        },
         ITEMS: {
             LIST: {
                 ADD: require('../APIS/POST/Items/List/itemsAdd'),
@@ -20,6 +25,7 @@ const PATH_CONF = {
         }
     },
     GET: {
+        LOCATION: require('../APIS/GET/Location/location'),
         ITEMS: {
             LIST: require('../APIS/GET/Items/List/itemsGetData'),
             RECEIVE: require('../APIS/GET/Items/Receive/receiveGetData'),
@@ -34,6 +40,11 @@ const PATH_CONF = {
 const ARRAY_PATH = {
     POST: [
         PATH_CONF.POST.LOGIN,
+
+        // LOCATIONS
+        PATH_CONF.POST.LOCATION.ADD,
+        PATH_CONF.POST.LOCATION.EDIT,
+        PATH_CONF.POST.LOCATION.DELETE,
 
         // ITEMs LIST
         PATH_CONF.POST.ITEMS.LIST.ADD,
@@ -51,6 +62,9 @@ const ARRAY_PATH = {
         PATH_CONF.POST.ITEMS.ISSUED.DELETE,
     ],
     GET: [
+        // LOCATION
+        PATH_CONF.GET.LOCATION,
+
         // ITENS
         PATH_CONF.GET.ITEMS.LIST,
         PATH_CONF.GET.ITEMS.RECEIVE,

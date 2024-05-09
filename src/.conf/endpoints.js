@@ -1,5 +1,6 @@
 const ENDPOINTS = {
     GET: {
+        LOCATION: '/location',
         ITEMS: {
             LIST: '/items/list',
             RECEIVE: '/items/receive',
@@ -11,6 +12,11 @@ const ENDPOINTS = {
     },
     POST: {
         LOGIN: '/login',
+        LOCATION: {
+            ADD: '/location/add',
+            EDIT: '/location/edit',
+            DELETE: '/location/delete',
+        },
         ITEMS: {
             LIST: {
                 ADD: '/items/list/add',

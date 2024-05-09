@@ -16,6 +16,13 @@ const TABLES = {
             "COMPANY_ID"
         ]
     },
+    LOCATION: {
+        TABLE: "locations",
+        COLUMN: [
+            "NAME",
+            "COMPANY_ID",
+        ]
+    },
     ITEMS: {
         LIST: {
             TABLE: "items_list",
@@ -36,6 +43,7 @@ const TABLES = {
                 "QTY",
                 "INPUT_BY",
                 "INPUT_DATE",
+                "LOCATION_ID",
                 "COMPANY_ID",
             ]
         },

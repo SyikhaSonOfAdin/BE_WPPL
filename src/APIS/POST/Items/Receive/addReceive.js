@@ -9,10 +9,10 @@ const receive = new Receive()
 const summary = new Summary()
 
 router.post(ENDPOINTS.POST.ITEMS.RECEIVE.ADD, async (req, res) => {
-    const { item_id, qty, input_by, input_date, company_id } = req.body
+    const { item_id, qty, input_by, input_date, company_id, location_id } = req.body
 
     try {
-        await receive.add(item_id, qty, input_by, input_date, company_id)
+        await receive.add(item_id, qty, input_by, input_date, company_id, location_id)
         await summary.received(item_id, qty)
         
         res.status(200).json({
